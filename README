@@ -1,0 +1,9 @@
+calendar-lists
+
+Shell program to test Google Calendar API (and CalendarList resource).
+
+OAuth code copied from gdrive-cli application
+by Thomas Dignan <tom@tomdignan.com>
+
+Moved some of his code into oauth module, and refactored it to make it 
+generic for API scopes, discovery services and versions.
