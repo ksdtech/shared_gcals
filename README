@@ -1,9 +1,43 @@
-calendar-lists
+shared_gcals
 
-Shell program to test Google Calendar API (and CalendarList resource).
+Shell program to test Google Calendar API 
+ACLs and CalendarList resources.
 
 OAuth code copied from gdrive-cli application
 by Thomas Dignan <tom@tomdignan.com>
 
 Moved some of his code into oauth module, and refactored it to make it 
 generic for API scopes, discovery services and versions.
+
+Installation
+
+1. Clone this project from github
+
+2. Install Google API Python client library and http2lib
+
+3. Log into your Google Apps domain account
+
+4. Create a project on your Google APIs console page
+   https://code.google.com/apis/console
+   Enable Calendar API
+   Use "Installed application - Other"
+   
+5. After OAuth 2 keys are generated, click Download JSON.
+
+6. Save the client_secrets.json file to the directory containing this 
+   README file
+   
+7. Run python gcal_client.py -a to store credentials in local file. 
+   You probably need to have Chrome set up as your default browser for
+   the OAuth 2 flow to work in this step.
+ 
+Operation - List Calendars
+
+python gcal_client.py
+ 
+If runs successfully, the program should list all of your calendars
+with their calendar IDs.
+
+Operation - Share a Calendar with Another User
+
+python gcal_client.py -c <CALENDAR_ID> -u <OTHER_USER_EMAIL>
