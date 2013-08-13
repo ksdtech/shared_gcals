@@ -16,6 +16,7 @@ Based on code Copyright 2012 Thomas Dignan <tom@tomdignan.com>
    limitations under the License.
 """
 from apiclient.discovery import build
+from gdata.gauth import OAuth2TokenFromCredentials
 import httplib2
 import pickle
 import simple_cli
@@ -43,4 +44,9 @@ def authenticate(scopes):
 def get_service_object(api, version):
     credentials = get_credentials()
     return build_service(credentials, api, version)
-
+    
+def authorize_gdata_client(client):
+    credentials = get_credentials()
+    # print credentials.to_json()
+    auth_token = OAuth2TokenFromCredentials(credentials)
+    auth_token.authorize(client)
